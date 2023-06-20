@@ -17,8 +17,6 @@ export class TwoGraphicsComponent {
     }else{
       this.checked = true;
     }
-    console.log(this.checked)
   }
-
 
 }
