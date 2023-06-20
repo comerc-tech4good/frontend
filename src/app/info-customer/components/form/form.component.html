@@ -4,7 +4,7 @@
     <mat-form-field>
       <mat-label>Selecciona una opción</mat-label>
       <mat-select class="form-control" formControlName="parameters">
-        <mat-option *ngFor="let list2 of parametersList" value="{{list2}}">{{list2}}</mat-option>
+        <mat-option *ngFor="let list2 of config.activities" value="{{list2}}">{{list2}}</mat-option>
       </mat-select>
     </mat-form-field>
     <!-- END -->
@@ -13,7 +13,7 @@
     <mat-form-field>
       <mat-label>Selecciona una/varias opcion/es</mat-label>
       <mat-select class="form-control" formControlName="activity" multiple>
-        <mat-option *ngFor="let list1 of activityList" [value]="list1">{{list1}}</mat-option>
+        <mat-option *ngFor="let list1 of config.parameters" [value]="list1">{{list1}}</mat-option>
       </mat-select>
     </mat-form-field>
     <!-- END -->
