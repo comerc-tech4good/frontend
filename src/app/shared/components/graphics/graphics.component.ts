@@ -34,8 +34,9 @@ export class GraphicsComponent {
   public barChartData: ChartData<'bar'> = {
     labels: [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ],
     datasets: [
-      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A', backgroundColor: '#21BBDB' },
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B', backgroundColor: '#DBD263'},
+      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A', backgroundColor:'#ac4e6289', borderWidth:1 },
+      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B', backgroundColor:'#3a7ec264;', borderWidth:1},
+      { data: [ 30, 48, 10, 19,80, 50, 90 ], label: 'Series C', backgroundColor: '#f8f8f850', borderWidth:1, borderColor:'white'},
 
     ]
   };

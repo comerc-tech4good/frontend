@@ -1,7 +1,7 @@
 
 <div class="wrapper-graphics">
 
-  <section class="example-section">
+  <section class="radar-option">
     <mat-slide-toggle
         (click) ="onRadar()"
         class="example-margin"
@@ -13,11 +13,11 @@
   </section>
 
 
-<div *ngIf="checked; else radar">
+<div class="grafico" *ngIf="checked; else radar">
 <app-radar></app-radar>
 </div>
 
-<ng-template #radar>
+<ng-template class="grafico" #radar>
 <app-graphics></app-graphics>
 </ng-template>
 

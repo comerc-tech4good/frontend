@@ -2,3 +2,35 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.chart-container {
+  position: relative;
+  height:80vh;
+  width:auto;
+  display: flex;
+  justify-content: center;
+}
+
+// body{
+//   font-family: 'Nunito', sans-serif;
+//   background-color: $main-dark;
+//   margin:0 auto;
+//   padding:0;
+//   width:100%;
+
+//   &::after {
+//     content: '';
+//     background-image: radial-gradient(rgb(255, 255, 255) 2%, #fff0 10.2%);
+//     background-position: 0 0;
+//     background-repeat: repeat;
+//     background-size: 10px 10px;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-attachment: fixed;
+//     z-index: -1;
+//     }
+//   }
+
