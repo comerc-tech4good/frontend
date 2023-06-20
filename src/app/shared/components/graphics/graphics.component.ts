@@ -10,15 +10,12 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 })
 export class GraphicsComponent {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
+    indexAxis: 'y',
     // We use these empty structures as placeholders for dynamic theming.
-    scales: {
-      x: {},
-      y: {
-        min: 10
-      }
-    },
+
     plugins: {
       legend: {
         display: true,
