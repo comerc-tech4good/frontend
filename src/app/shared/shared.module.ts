@@ -6,6 +6,8 @@ import { GraphicsComponent } from './components/graphics/graphics.component';
 import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
 import { NgChartsModule } from 'ng2-charts';
+import { RadarComponent } from './components/radar/radar.component';
+import { TwoGraphicsComponent } from './components/two-graphics/two-graphics.component';
 
 
 
@@ -14,7 +16,9 @@ import { NgChartsModule } from 'ng2-charts';
     HeaderComponent,
     LoadingComponent,
     GraphicsComponent,
-    HomeComponent
+    HomeComponent,
+    RadarComponent,
+    TwoGraphicsComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { NgChartsModule } from 'ng2-charts';
   ],
   exports:[
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+
   ]
 })
 export class SharedModule { }
