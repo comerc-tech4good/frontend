@@ -1,0 +1,27 @@
+
+<div class="wrapper-graphics">
+
+  <section class="example-section">
+    <mat-slide-toggle
+        (click) ="onRadar()"
+        class="example-margin"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled">
+      RADAR VIEW
+    </mat-slide-toggle>
+  </section>
+
+
+<div *ngIf="checked; else radar">
+<app-radar></app-radar>
+</div>
+
+<ng-template #radar>
+<app-graphics></app-graphics>
+</ng-template>
+
+</div>
+
+
+
