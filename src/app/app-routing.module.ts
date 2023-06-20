@@ -1,21 +1,20 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './shared/home/home.component';
-import { InfoCustomerModule } from './info-customer/info-customer.module';
 import { FormComponent } from './info-customer/components/form/form.component';
+import { GraphicsComponent } from './graphics/graphics.component';
 
 
 const routes: Routes = [
 
   {
     path:'home',
-    component:HomeComponent
+    component:FormComponent
 
   },
   {
     path:'form',
-    component:FormComponent
+    component:GraphicsComponent
   },
   {
     path:'**',
