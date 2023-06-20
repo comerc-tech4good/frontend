@@ -13,12 +13,14 @@
   </section>
 
 
-<div class="grafico" *ngIf="checked; else radar">
-<app-radar></app-radar>
+<div *ngIf="checked; else radar">
+  <app-radar></app-radar>
 </div>
 
 <ng-template class="grafico" #radar>
-<app-graphics></app-graphics>
+  <div class="grafico" *ngFor="let item of data">
+  <app-graphics [data]="item"></app-graphics>
+  </div>
 </ng-template>
 
 </div>

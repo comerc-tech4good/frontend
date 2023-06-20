@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, Input } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
@@ -11,13 +11,35 @@ import { NeighborhoodResponse } from '../../../api/interfaces/neighborhood-respo
   styleUrls: ['./graphics.component.scss']
 })
 export class GraphicsComponent implements OnInit {
+  @Input()
+  data!: NeighborhoodResponse
 
-  data!: NeighborhoodResponse[]
+  parameter: string = ''
 
-  constructor(private infoCustomerS:InfoCustomerService) {}
+  constructor() {}
+
   ngOnInit(): void {
-    if (this.infoCustomerS.threeNeighborhood)
-    this.data = this.infoCustomerS.threeNeighborhood
+    this.parameter = this.data.parameter
+    const labels: string[] = []
+
+    const neightborhoodArray = this.data.neightborhoods.map( ({info}, index) => {
+      const neightborhood = []
+      for ( const [key,value] of Object.entries( info ) ) {
+       if (index === 0)  labels.push(key)
+        neightborhood.push(value)
+      }
+      return neightborhood
+    })
+
+    this.barChartData = {
+      labels: labels,
+      datasets: [
+        { data: neightborhoodArray[0], label: this.data.neightborhoods[0].name, backgroundColor:'#ac4e6289', borderWidth:1 },
+        { data: neightborhoodArray[1], label: this.data.neightborhoods[1].name, backgroundColor:'#3a7ec264;', borderWidth:1},
+        { data: neightborhoodArray[2], label: this.data.neightborhoods[2].name, backgroundColor: '#f8f8f850', borderWidth:1, borderColor:'white'},
+  
+      ]
+    }
   }
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;

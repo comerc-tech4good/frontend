@@ -15,13 +15,16 @@ export class TwoGraphicsComponent implements OnInit {
   checked = false;
   disabled = false;
 
+  data!: NeighborhoodResponse[]
+
   constructor(
     private infoCustomerS:InfoCustomerService,
     private router: Router
     ) {}
 
   ngOnInit(): void {
-    if (!this.infoCustomerS.threeNeighborhood) this.router.navigate(['home']);
+    !this.infoCustomerS.threeNeighborhood ? this.router.navigate(['home']):
+    this.data = this.infoCustomerS.threeNeighborhood
   }
 
   onRadar(){
