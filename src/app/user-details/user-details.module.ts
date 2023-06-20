@@ -9,8 +9,6 @@ import { UserHomeComponent } from './user-home/user-home.component';
 @NgModule({
   declarations: [
 
-
-  
     UserHomeComponent
   ],
   imports: [
