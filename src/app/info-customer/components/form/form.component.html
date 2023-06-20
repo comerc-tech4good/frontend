@@ -1,12 +1,36 @@
-<mat-form-field>
-  <mat-label>Toppings</mat-label>
-  <mat-select [formControl]="toppings" multiple>
-    <mat-select-trigger>
-      {{toppings.value?.[0] || ''}}
-      <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
-        (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-      </span>
-    </mat-select-trigger>
-    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<div ngClass="">
+  <form [formGroup]="listOptions">
+    <!-- Second Option to select -->
+    <mat-form-field>
+      <mat-label>Selecciona una opción</mat-label>
+      <mat-select class="form-control" formControlName="parameters">
+        <mat-option *ngFor="let list2 of parametersList" value="{{list2}}">{{list2}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- END -->
+    
+    <!-- First Option to select -->
+    <mat-form-field>
+      <mat-label>Selecciona una/varias opcion/es</mat-label>
+      <mat-select class="form-control" formControlName="activity" multiple>
+        <mat-option *ngFor="let list1 of activityList" [value]="list1">{{list1}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- END -->
+
+    <!-- Errors validators -->
+    <div *ngIf="listOptions.invalid && (listOptions.dirty || listOptions.touched)" class="alert alert-danger">
+      <div *ngIf="listOptions.errors?.['activity']">
+        <p>Error! Selecciona una opción en actividad.</p>
+      </div>
+      <div *ngIf="listOptions.errors?.['parameters']">
+        <p>Error! Selecciona una opción en parametros.</p>
+      </div>
+    </div>
+    <!-- END -->
+
+    <button type="submit" (click)="selected()">Enviar</button>
+
+  </form>
+
+</div>
