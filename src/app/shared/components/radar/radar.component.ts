@@ -20,17 +20,7 @@ export class RadarComponent implements OnInit {
   
   // Radar
   public radarChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-
-      animations: {
-        tension: {
-          duration: 500,
-          easing: 'linear',
-          from: 0.2,
-          to: 0,
-
-        }
-      },
+    responsive: true
   };
   public radarChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
 

@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.chart-container {
+    position: relative;
+    height:80vh;
+    width:auto;
+    display: flex;
+    justify-content: center;
+  }
