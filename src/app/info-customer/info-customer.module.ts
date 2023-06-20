@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from './form/form.component';
+import { FormComponent } from './components/form/form.component';
+
 import { MaterialModule } from '../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +13,11 @@ import { MaterialModule } from '../shared/material/material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
+  ],
+  exports:[
+    FormComponent
   ]
 })
-export class FormCustomerModule { }
+export class InfoCustomerModule { }

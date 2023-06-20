@@ -1,9 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { combineLatest } from 'rxjs';
-import { HomeComponent } from './home/home/home.component';
-import { InfoClientModule } from './info-client/info-client.module';
+import { HomeComponent } from './shared/home/home.component';
+import { InfoCustomerModule } from './info-customer/info-customer.module';
+import { FormComponent } from './info-customer/components/form/form.component';
 
 
 const routes: Routes = [
@@ -11,10 +11,11 @@ const routes: Routes = [
   {
     path:'home',
     component:HomeComponent
+
   },
   {
-    path:'info',
-    component:InfoClientModule
+    path:'customer',
+    component:FormComponent
   },
   {
     path:'**',

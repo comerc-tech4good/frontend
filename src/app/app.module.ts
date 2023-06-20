@@ -8,14 +8,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
-import { InfoClientModule } from './info-client/info-client.module';
-import { GraficaComponent } from './home/components/grafica/grafica.component';
+import { InfoCustomerModule } from './info-customer/info-customer.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraficaComponent
   ],
   imports: [
     BrowserModule,
@@ -23,10 +22,8 @@ import { GraficaComponent } from './home/components/grafica/grafica.component';
     BrowserAnimationsModule,
     MaterialModule,
     SharedModule,
-    HomeModule,
-    InfoClientModule,
-    HomeModule,
-    NgChartsModule
+    NgChartsModule,
+    InfoCustomerModule
 
   ],
   providers: [],
