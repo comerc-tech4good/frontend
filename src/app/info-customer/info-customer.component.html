@@ -1,5 +1,5 @@
 <div *ngIf="config">
-    <form [formGroup]="listOptions" (ngSubmit)="selected()">
+    <form [formGroup]="listOptions" (ngSubmit)="selected()" class="form-options shadow">
       <!-- Second Option to select -->
       <mat-form-field>
         <mat-label>Selecciona una opción</mat-label>
@@ -8,7 +8,7 @@
         </mat-select>
       </mat-form-field>
       <!-- END -->
-      
+
       <!-- First Option to select -->
       <mat-form-field>
         <mat-label>Selecciona una/varias opcion/es</mat-label>
@@ -17,7 +17,7 @@
         </mat-select>
       </mat-form-field>
       <!-- END -->
-  
+
       <!-- Errors validators -->
       <div *ngIf="listOptions.invalid && (listOptions.dirty || listOptions.touched)" class="alert alert-danger">
         <div *ngIf="listOptions.errors?.['activity']">
@@ -28,8 +28,10 @@
         </div>
       </div>
       <!-- END -->
-  
-      <button type="submit">Enviar</button>
-  
+
+      <div>
+        <button mat-raised-button color="primary" type="submit" (click)="selected()">Enviar</button>
+      </div>
+
+
     </form>
-  
