@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { NeighborhoodResponse } from 'src/app/api/interfaces/neighborhood-response.interface';
+import { InfoCustomerService } from '../../services/info-customer.service';
 
 @Component({
   selector: 'app-radar',
   templateUrl: './radar.component.html',
   styleUrls: ['./radar.component.scss']
 })
-export class RadarComponent {
+export class RadarComponent implements OnInit {
+
+  data!: NeighborhoodResponse[]
+
+  constructor(private infoCustomerS:InfoCustomerService) {}
+  ngOnInit(): void {
+    if (this.infoCustomerS.threeNeighborhood)
+    this.data = this.infoCustomerS.threeNeighborhood
+  }
+  
   // Radar
   public radarChartOptions: ChartConfiguration['options'] = {
     responsive: true,

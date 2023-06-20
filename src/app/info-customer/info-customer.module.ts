@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from './components/form/form.component';
 
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfoCustomerComponent } from './info-customer.component';
 
 
 
 @NgModule({
   declarations: [
-    FormComponent
+    InfoCustomerComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports:[
-    FormComponent
+    InfoCustomerComponent
   ]
 })
 export class InfoCustomerModule { }

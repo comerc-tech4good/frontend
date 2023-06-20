@@ -1,19 +1,19 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FormComponent } from './info-customer/components/form/form.component';
 import { GraphicsComponent } from './graphics/graphics.component';
+import { InfoCustomerComponent } from './info-customer/info-customer.component';
 
 
 const routes: Routes = [
 
   {
     path:'home',
-    component:FormComponent
+    component:InfoCustomerComponent
 
   },
   {
-    path:'form',
+    path:'graphics',
     component:GraphicsComponent
   },
   {

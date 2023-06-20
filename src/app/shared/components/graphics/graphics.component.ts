@@ -1,14 +1,25 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+import { InfoCustomerService } from '../../services/info-customer.service';
+import { NeighborhoodResponse } from '../../../api/interfaces/neighborhood-response.interface';
 
 @Component({
   selector: 'app-graphics',
   templateUrl: './graphics.component.html',
   styleUrls: ['./graphics.component.scss']
 })
-export class GraphicsComponent {
+export class GraphicsComponent implements OnInit {
+
+  data!: NeighborhoodResponse[]
+
+  constructor(private infoCustomerS:InfoCustomerService) {}
+  ngOnInit(): void {
+    if (this.infoCustomerS.threeNeighborhood)
+    this.data = this.infoCustomerS.threeNeighborhood
+  }
+
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {

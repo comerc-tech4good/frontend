@@ -7,17 +7,22 @@ import {
 } from '@angular/forms';
 import { ConfigResponse } from 'src/app/api/interfaces';
 import { ConfigApiService } from 'src/app/api/services/config-api.service';
+import { InfoCustomerService } from '../shared/services/info-customer.service';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  selector: 'app-info-customer',
+  templateUrl: './info-customer.component.html',
+  styleUrls: ['./info-customer.component.scss'],
 })
-export class FormComponent implements OnInit {
-  config!: ConfigResponse;
+export class InfoCustomerComponent implements OnInit {
+  config!: ConfigResponse
 
   listOptions!: FormGroup;
-  constructor(private fb: FormBuilder, private configApi: ConfigApiService) {}
+  constructor(
+    private fb: FormBuilder,
+    private configApi: ConfigApiService,
+    private infoCustomerS: InfoCustomerService,
+    ) {}
   ngOnInit(): void {
     this.configApi.get().subscribe((data) => {
       this.config = data
@@ -29,7 +34,7 @@ export class FormComponent implements OnInit {
     console.log(this.listOptions.value)
   }
   selected() {
-    console.log(this.listOptions.value.activity);
+    this.infoCustomerS.saveData(this.listOptions)
   }
 
   get activity() {

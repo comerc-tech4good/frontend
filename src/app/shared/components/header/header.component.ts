@@ -14,6 +14,6 @@ export class HeaderComponent {
     this.router.navigate(['home']);
   }
   goDetails() {
-    this.router.navigate(['form']);
+    this.router.navigate(['graphics']);
   }
 }
