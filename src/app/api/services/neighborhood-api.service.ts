@@ -14,6 +14,7 @@ export class NeighborhoodApiService {
 
   getTop3(activity: string, parameters: string[]): Observable<NeighborhoodResponse[]> {
     const body = { activity, parameters };
+    console.log(body);
 
     return this.http.post<NeighborhoodResponse[]>(this.url, body);
   }

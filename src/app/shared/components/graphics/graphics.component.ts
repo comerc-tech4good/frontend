@@ -11,7 +11,7 @@ import { NeighborhoodResponse } from '../../../api/interfaces/neighborhood-respo
   styleUrls: ['./graphics.component.scss']
 })
 export class GraphicsComponent implements OnInit {
-  @Input()
+  @Input("data")
   data!: NeighborhoodResponse
 
   parameter: string = ''
@@ -21,23 +21,28 @@ export class GraphicsComponent implements OnInit {
   ngOnInit(): void {
     this.parameter = this.data.parameter
     const labels: string[] = []
+    console.log("pepe",this.data);
 
-    const neightborhoodArray = this.data.neightborhoods.map( ({info}, index) => {
-      const neightborhood = []
+
+    const neighborhoodArray = this.data.neighborhood.map( ({info}, index) => {
+      const neighborhood = []
+      console.log("hola");
+
       for ( const [key,value] of Object.entries( info ) ) {
        if (index === 0)  labels.push(key)
-        neightborhood.push(value)
+        neighborhood.push(value)
       }
-      return neightborhood
+
+      return neighborhood
     })
 
     this.barChartData = {
       labels: labels,
       datasets: [
-        { data: neightborhoodArray[0], label: this.data.neightborhoods[0].name, backgroundColor:'#ac4e6289', borderWidth:1 },
-        { data: neightborhoodArray[1], label: this.data.neightborhoods[1].name, backgroundColor:'#3a7ec264;', borderWidth:1},
-        { data: neightborhoodArray[2], label: this.data.neightborhoods[2].name, backgroundColor: '#f8f8f850', borderWidth:1, borderColor:'white'},
-  
+        { data: neighborhoodArray[0], label: this.data.neighborhood[0].name, backgroundColor:'#ac4e6289', borderWidth:1 },
+        { data: neighborhoodArray[1], label: this.data.neighborhood[1].name, backgroundColor:'#3a7ec264;', borderWidth:1},
+        { data: neighborhoodArray[2], label: this.data.neighborhood[2].name, backgroundColor: '#f8f8f850', borderWidth:1, borderColor:'white'},
+
       ]
     }
   }
@@ -46,7 +51,7 @@ export class GraphicsComponent implements OnInit {
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
-    indexAxis: 'y',
+    indexAxis: 'x',
     // We use these empty structures as placeholders for dynamic theming.
 
     plugins: {

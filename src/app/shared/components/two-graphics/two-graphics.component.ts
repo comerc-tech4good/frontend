@@ -25,6 +25,8 @@ export class TwoGraphicsComponent implements OnInit {
   ngOnInit(): void {
     !this.infoCustomerS.threeNeighborhood ? this.router.navigate(['home']):
     this.data = this.infoCustomerS.threeNeighborhood
+    console.log(this.data);
+
   }
 
   onRadar(){
