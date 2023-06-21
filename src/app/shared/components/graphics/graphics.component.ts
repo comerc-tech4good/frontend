@@ -3,7 +3,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { InfoCustomerService } from '../../services/info-customer.service';
-import { NeighborhoodResponse } from '../../../api/interfaces/neighborhood-response.interface';
+import { NeighborhoodData, NeighborhoodResponse } from '../../../api/interfaces/neighborhood-response.interface';
 
 @Component({
   selector: 'app-graphics',
@@ -12,13 +12,46 @@ import { NeighborhoodResponse } from '../../../api/interfaces/neighborhood-respo
 })
 export class GraphicsComponent implements OnInit {
   @Input()
-  data!: NeighborhoodResponse
+  response!: NeighborhoodResponse
 
-  parameter: string = ''
+  searchedParams: string[] = []
 
   constructor() {}
 
   ngOnInit(): void {
+
+
+
+
+    // for each object, get the parameter that was looked up for and the 3 neighboor objects
+    this.response.objects.forEach((NeighborhoodData) =>  {
+      // add to searched parameters
+      this.searchedParams.push(NeighborhoodData.parameter)
+
+      var labels: string[] = []
+
+      // for each neighborhood for given parameter, get name and info
+      NeighborhoodData.neighborhoods.forEach((Neighborhood) => {
+        var neighborhoodName = Neighborhood.name
+
+        // getting info object by iteration (inside iteration: {alquiler: 10, venta: 10, ...})
+        for ( const [key, value] of Object.entries( Neighborhood.info)) {
+
+          // add to labels array
+          if (!(key in labels)) {
+            labels.push(key)
+          }
+
+
+
+        }
+
+      })
+
+    })
+
+
+
     this.parameter = this.data.parameter
     const labels: string[] = []
 
@@ -37,7 +70,7 @@ export class GraphicsComponent implements OnInit {
         { data: neightborhoodArray[0], label: this.data.neightborhoods[0].name, backgroundColor:'#ac4e6289', borderWidth:1 },
         { data: neightborhoodArray[1], label: this.data.neightborhoods[1].name, backgroundColor:'#3a7ec264;', borderWidth:1},
         { data: neightborhoodArray[2], label: this.data.neightborhoods[2].name, backgroundColor: '#f8f8f850', borderWidth:1, borderColor:'white'},
-  
+
       ]
     }
   }
